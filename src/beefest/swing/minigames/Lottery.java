@@ -54,7 +54,6 @@ public class Lottery extends JFrame implements ActionListener, FocusListener {
         output.setText("");
         display.setText("");
         generateNumbers();
-        System.out.println(number);
         StringBuilder sb = new StringBuilder();
 
         try {
@@ -68,10 +67,13 @@ public class Lottery extends JFrame implements ActionListener, FocusListener {
             sb.append(input.getText());
         } else sb.append(input.getText());
 
+        //win 10.000 if player digits matches the exact number:
         if (Integer.parseInt(sb.toString()) == number) {
             output.setText("\n\nCongratulations, you won \nthe jackpot of € 10.000!");
             display.setText("Winning number was " + number + ". Want to play again?");
             generateNumbers();
+
+        //win 3.000 if both player digits match both number digits:
         } else if ((Integer.parseInt(String.valueOf(sb.toString().charAt(0))) == (number1) ||
                 Integer.parseInt(String.valueOf(sb.toString().charAt(0))) == (number2)) &&
                 (Integer.parseInt(String.valueOf(sb.toString().charAt(1))) == (number1) ||
@@ -79,6 +81,8 @@ public class Lottery extends JFrame implements ActionListener, FocusListener {
             output.setText("\n\nCongratulations, you won \na prize of € 3.000!");
             display.setText("Winning number was " + number + ". Want to play again?");
             generateNumbers();
+
+        //win 1.000 if one player digit matches one number digit:
         } else if (Integer.parseInt(String.valueOf(sb.toString().charAt(0))) == (number1) ||
                 Integer.parseInt(String.valueOf(sb.toString().charAt(0))) == (number2) ||
                 Integer.parseInt(String.valueOf(sb.toString().charAt(1))) == (number1) ||
