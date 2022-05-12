@@ -19,7 +19,6 @@ public class GuessTheNumber extends JFrame implements ActionListener, FocusListe
         display.setFont(display.getFont().deriveFont(15.0f));
         getContentPane().add(display, BorderLayout.NORTH);
 
-
         panel.setLayout(new GridLayout(1, 2));
         getContentPane().add(panel, BorderLayout.CENTER);
         panel.add(input);
